@@ -1,0 +1,30 @@
+Snowball
+	Improvement of Export-Import
+	2015 Re-Invent
+	Petabyte-Scale data transport solution
+		
+	
+	1. Snowball Std
+		Just storage
+		80 TB in all region
+		AES-256 Bit of encryption
+
+	2. Snowball Edge
+		100 TB Capcity
+		Storage plus On board compute capacity (CPU + RAM)
+		Works like a small server or CPU
+		You can process your data offline
+		
+	3. Snowball Mobile
+		2016 Re-invent
+		PetaByte and Exabytes of Data
+	
+Snowball Pricing
+
+Shipping Fee + Days you have parked Snowball appliance at your premise + Standard Rate of appliance
+Shipping Fee One Day = 100 USD
+Per Day PArking Chages = 50 USD
+Standard Appliance Rate = 250 USD
+Parked = 7 Days
+
+100 + 50 X 7 + 250 = 700 USD
