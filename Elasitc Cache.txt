@@ -1,0 +1,23 @@
+Elastic Cache
+--------------------
+Used to offload other databases. 
+Used to cache select statement reposne in memory
+Can be used to store user session information
+Fully Managed service to deploy In memory database into clusters
+Amount of data can be stored is dependent upon memory availble in instance. Can be scaled by adding more instances or upscaling existing instances.
+Increases cache hit
+Admins can control how long objects can stored in cache
+Comes in two variants
+	1. Memcached
+		Simple Model
+		Data stores in Key Value Model
+		Data stores in plain text
+	2. Redis
+		True No Sql database
+		For Complex Data types
+		Multi AZ Failover Capability
+		Stores data on disk and on memory both so instance can restarted
+		Data persistence
+		Can take snapshot / Backup / Restore
+		Encryption is available as option
+		

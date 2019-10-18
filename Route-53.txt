@@ -1,0 +1,36 @@
+Route-53
+
+Fully managed DNS service from AWS.
+Helps you:
+	Buy new domain
+	Manage exisiting domain
+	Point domains to AWS endpoints: (EC2 IP, CloudFront, ELB, ElasticBeanstalk, S3 Static Website)
+	Create internal domain
+
+Top Level Domain Name
+Second Level Domain Name
+
+Domain Registrars: Party that registers individual domain
+
+WhoIS database: Database of all domain names
+http://www.iana.org/domains/root/db
+
+
+SOA Record: Information stored in DNS zone about the zone and about other records like name of server, admin of the zone, etc
+
+Name Server Record: Which DNS server is authoritative for that domain
+
+blog.amar-academy.com
+
+
+Routing Policies:
+
+Simple Routing Policy: Request to domain is made and R53 forwards it to single endpoint every time.
+
+Weighted Routing Policy: Request is made to R53, then it forwards to different endpoints based on weightage defined to them
+
+Geolocation Routing Policy: Each endpoint is associated with some geo location. Based on origin of request, request will be forwarded to appropriate geo location endpoint.
+
+Latancy Routing Policy: Each endpoint is associated with one region. When request is made, latency between requester IP and all defined endpoints is checked. Then request is forwarded to least latency endpoint.
+
+Failover Routing Policy: One endpoint is marked as primary and one endpoint is marked as secondary. All the requests will go to primary endpoint. Once primary endpoint fails, requests will be forwarded to secondary endpoint.
