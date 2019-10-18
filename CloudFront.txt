@@ -1,0 +1,91 @@
+CloudFront
+
+	Edge Location
+	Origin
+	Distribution (Name given for CDN for collection of Edge Locations)
+		Web Distrubition (Websites)
+		RTMP (Media Streaming)
+
+	Edge Locations are both READ and WRITE locations
+	TTL (Time to Live)
+	You will be charged to clear cache
+
+CloudFront Lab
+	
+Securing S3 Bucket
+	Bucket Policies
+	ACL
+
+
+Important on cloud fronts...
+
+1. origin domain name-->Name of bucket or HTTp Server path
+2. Path- if files are stored in a bucket and bukcet has a folder named--Sample
+
+use would be accessing files as 
+
+<Domain name>/Sample/<file name>
+
+3. Restrict Bukcet access
+
+It has two options yes or no..if you say yes then user would not be able to access files using S3 url...they can only request
+content through cloudfront
+
+4. origin access identity
+
+If restrict bucket access is set to 'yes' then aws needs a user with appropriate policies to gt data from bucket as S3 get access is 
+blocked...so cloudfront created a IAM user or cloundfront user.
+
+
+5. Grant read permission on buckets--
+
+we have two options here/...either let cloudfront to update policy to restrict access for all S3 get requests and grant only to cloudfront
+or update policy by ourself.
+
+NOTE-- if bucket has a public access policy attcted to it.. update bucket polict would not override the existing one. It would just add
+it in existing policy..all user would still be able to access S3 content. in this case, admin will have to upate polict manually.
+
+
+6. When you create a new distribution, you specify settings for the default cache behavior, which
+automatically forwards all requests to the origin that you specify when you create the distribution.
+After you create a distribution, you can create additional cache behaviors that define how CloudFront
+responds when it receives a request for objects that match a path pattern, for example, *.jpg. If you
+create additional cache behaviors, the default cache behavior is always the last to be processed. Other
+cache behaviors are processed in the order in which they're listed in the CloudFront console.
+
+7.  When you create a cache behavior, you specify the one origin from which you want CloudFront to get
+objects. As a result, if you want CloudFront to distribute objects from all of your origins, you must
+have at least as many cache behaviors (including the default cache behavior) as you have origins. For
+example, if you have two origins and only the default cache behavior, the default cache behavior will
+cause CloudFront to get objects from one of the origins, but the other origin will never be used
+
+8. Path pattern--
+
+A path pattern (for example, images/*.jpg) specifies which requests you want this cache behavior
+to apply to. When CloudFront receives an end-user request, the requested path is compared with path
+patterns in the order in which cache behaviors are listed in the distribution. The first match determines
+which cache behavior is applied to that request. For example, suppose you have three cache behaviors
+with the following three path patterns, in this order:
+• images/*.jpg
+• images/*
+• *.gif
+
+Note
+You can optionally include a slash (/) at the beginning of the path pattern, for example, /
+images/*.jpg. CloudFront behavior is the same with or without the leading /.
+A request for the file images/sample.gif doesn't satisfy the first path pattern, so the associated cache
+behaviors are not applied to the request. The file does satisfy the second path pattern, so the cache
+behaviors associated with the second path pattern are applied even though the request also matches the
+third path pattern.
+You can use the following wildcard characters in your path pattern:
+• * matches 0 or more characters.
+• ? matches exactly 1 character.
+Path patterns are case sensitive, so the path pattern *.jpg doesn't apply to the file LOGO.JPG.
+
+9. Cache Based on Selected Request Headers
+Specify whether you want CloudFront to cache objects based on the values of specified headers:
+• None (improves caching) – CloudFront doesn't cache your objects based on header values.
+• Whitelist – CloudFront caches your objects based only on the values of the specified headers. Use
+Whitelist Headers to choose the headers that you want CloudFront to base caching on.
+• All – CloudFront doesn't cache the objects that are associated with this cache behavior. Instead,
+CloudFront sends every request to the origin. (Not recommended for Amazon S3 origins.)
