@@ -1,0 +1,51 @@
+------------Managing EC2 Instance from Amazon CLI---------------------------
+aws ec2 describe-regions --output table
+1. Create IAM role (if you want to setup on EC2 instance) or user. 
+
+2. Install AWS CLI on Laptop
+
+3. Configure aws credentials on Laptop
+
+
+
+1. Creating Security Group
+
+aws ec2 create-security-group --group-name LinuxSG --description "security group running Linux and HTTP in EC2" --region us-east-1
+
+aws ec2 authorize-security-group-ingress --group-name LinuxSG --protocol tcp --port 22 --cidr 0.0.0.0/0 --region us-east-1
+
+aws ec2 authorize-security-group-ingress --group-name LinuxSG --protocol tcp --port 80 --cidr 0.0.0.0/0 --region us-east-1
+
+aws ec2 describe-security-groups --output table --region us-east-1
+
+2. Creating a Key Pair
+
+aws ec2 create-key-pair --key-name LinuxKey --query "KeyMaterial" --output text > LinuxKey.pem
+
+3. Launch EC2 Instance
+
+aws ec2 run-instances --image-id ami-09479453c5cde9639 --security-group-ids sg-0ca005b3851d102ca --count 1 --instance-type t2.micro --key-name LinuxKey --query "Instances[0].InstanceId" --region us-east-1
+
+Instance in Custom VPC
+aws ec2 run-instances --image-id ami-55ef662f --security-group-ids sg-b018ced5 --count 1 --instance-type t2.micro --key-name LinuxKey --query 'Instances[0].InstanceId' --subnet-id <XXXXXX>
+"i-0787e4282810ef9cf" 
+
+4. Describe Instance
+aws ec2 describe-instances --instance-ids "i-0a8895fd14e480622" --query "Reservations[0].Instances[0].PublicIpAddress"
+"54.183.22.255"
+
+
+5. Starting Instance
+aws ec2 start-instances --instance-ids i-0a8895fd14e480622
+
+6. Stopping Instance
+aws ec2 stop-instances --instance-ids i-0a8895fd14e480622
+
+7. Terminate Instance
+aws ec2 terminate-instances --instance-ids i-08720a9f20fb97142
+
+
+
+Creating Snapshot of Volume from Command Line Interface
+
+aws ec2 create-snapshot --volume-id vol-08032f8a7cec4fa7c --region us-east-1

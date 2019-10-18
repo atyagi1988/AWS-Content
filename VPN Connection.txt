@@ -1,0 +1,17 @@
+VPN Connectivity
+------------------------
+Creates private encrypted IPsec VPN connection between VPC subnet and on premise data center.
+
+1. Create Virtual Private Gateway
+	Requires: Name of VPG
+2. Create Customer Gateway
+	Requires: IP of customer router, ASN of routing is dynamic
+3. Create VPN Connection / Site-to-Site VPN
+	Requires: VPG, Customer Gateway, Routing Policy (Dynamic or Static)
+4. Download configuration file from VPN page for appropriate router
+5. Configure On premise Router	
+
+Creating Redundancy
+---------------------
+Each VPN has two tunnel associated  with it that can be configured on customer router.
+Create second customer gateway with other Router (probably with different ISP)

@@ -1,0 +1,40 @@
+Cost Optimization Techniques
+------------------------------
+1. Use Reserved Instances in EC2, Redshift, Elastic Cache, Dynamo DB when neccassary.
+
+2. Optimize S3 Life Cycle Policy to reduce the cost
+
+3. Make use of Glacier to store archival data
+
+4. Setup deletion policy for S3 objects
+
+5. Take control of S3 versioning
+
+6. Leverage spot instance market for non critical workloads.
+
+7. Keep track of Data transfer in S3
+
+8. Use approprite and static content for CloudFront to avoid invalidations
+
+9. Detach unused Elastic Ips
+
+10. Remove unwanted EBS volumes or take their snapshots.
+
+11. Make use of Trusted Advisor
+
+12. Make use of Cost Explorer
+
+13. Make use of Simple and TCO cost calculator
+
+14. Use Autoscaling whenever your application supports and required
+
+15. Determine right instance size for your application.
+
+16. Monitor track and analyze your expenses
+
+17. Use tagging in resources to explore the utilization
+
+18. Consolidate Billing often offers bulk discount
+
+19. Consider using budgets if you have predefined spending plan
+

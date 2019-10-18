@@ -1,0 +1,4 @@
+AWS shared Responsiblity Model
+AWS Best Practices
+AWS Well Architected Framework
+5 Pillers

@@ -1,0 +1,8 @@
+VPC Endpoints
+---------------
+Private and secure connection to AWS services.
+
+Gateway Endpoints: S3, Dynamo DB (Drop endpoint)
+Interface Endpoint: CloudWatch Log, Codebuild, KMS, Service Catalog (Uses ENI)
+
+

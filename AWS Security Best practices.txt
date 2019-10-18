@@ -1,0 +1,53 @@
+AWS Security Best Practices
+----------------------------------
+1. Make sure to understand "AWS Shared Responsibility Model"
+	Amazon resp: Amazon is responsible for the security of the software, hardware, and the physical facilities that host AWS services. Amazon also takes responsibility for the security configuration of its managed services such as Amazon DynamoDB, RDS, Redshift, Elastic MapReduce, WorkSpaces, etc.
+
+	Customer Resp:  AWS customers are responsible for secure usage of AWS services that are considered unmanaged. 
+
+2. Tighten CloudTrail Configuration
+	Enable cloudtrail across all regions.
+	Turn on log file validation in S3 buckets
+	Enable access logging
+	Turn on MFA on CLoudtrail S3 bucket and encrypt logfiles.
+
+3. Follow IAM best practices
+	Make sure IAM policies are always attached to group or role than IAM user itself.
+	Make use of IAM roles whereever possible
+	Ensure IAM users are given minimal access
+	Ensure IAM users have MFA on account
+	Limit number of admin users
+	Set up password regulation for strong password
+	
+
+4. Follow security best practices for Database and Storage
+	Ensure no S3 bucket has public access unless really required
+	Encrypt EBS volumes
+	Encrypt RDS databases
+	
+
+5. Tighen Security Groups and NACL
+
+6. Enable ELB Access Log
+
+7. Enable termination protection on EC2 instances to avoid accidental deletion of EC2 instances
+
+8. Apply security to all layers
+
+9. Know who is accessing your database and for what purpose. Enable database level logging.
+
+10. Encrypt sensitive information
+
+11. Have one SSH key per person. Dont share SSH keys.
+
+12. Dont use expired certificates
+
+13. Always backup your data. 
+
+14. Create seperate VPCs for PROD, DEV, TEST and sub organization purposes
+
+15. Lock down your root account credentials
+
+16. Keep your servers patched
+
+17. Use password generator tools to create super strong passwords

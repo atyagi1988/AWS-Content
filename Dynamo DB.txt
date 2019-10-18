@@ -1,0 +1,19 @@
+Dynamo DB
+-------------
+NoSQL Database services
+Runs on a clusters of nodes. CLusters grow up and shrink based on storage needs and required and read and write operations. (Read/Write Capacity Unit)
+Managed services so no need to take care of nodes. AWS does that for you.
+User interact with Dynamo DB using APIs hence it can be assumed as Serverless architecture
+Supports Autoscaling
+It is schemaless. No particular Columes for row.
+
+Fast and Flexible NoSQL Database
+	Supports both document and key-value pair data model
+	Stored on S3 across 3 Geographically distinct data center
+	
+	Pricing
+		Provisioned Throughput
+			Write -> 0.0065$ per hour for every 10 units
+			Read -> 0.0065$ per hour every 50 units
+		Storage Cost
+			$0.25 GB/Month
