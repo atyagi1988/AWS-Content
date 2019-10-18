@@ -1,0 +1,18 @@
+Autoscaling
+
+Placement Groups
+
+	Instances within same AZ
+	Low Latency between instances. 10 GBPS
+	Cant Span multiple AZ
+	Only Specific Types of Instances can be launched in Placement Groups
+	AWS recommends homogeneous instances
+	Cant merge Placement group
+	Cant move existing instance into placement group
+	
+
+Stress Test
+
+		#stress --cpu 100 on both instances
+		If done right, we shall see new instances after 1-2 mins
+	
