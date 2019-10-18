@@ -1,0 +1,124 @@
+EC2
+	Use of EC2 Server
+	Features: Scalable, Pay as you Go
+
+Pricing Options
+	On-Demand -> Pay as you go per hour basis
+	Reserved -> Reserved Instance for 1 or 3 Years
+	Spot -> Bidding based pricing
+	Dedicated Hosts -> Pay by Hour, Bring you own License, No Locked in Period
+	
+
+Instance Types
+	D	Dense Storage
+	R	RAM Intersive Apps
+	M	General Purpose
+	C	Compute Optimized
+	G	Graphics Intensive
+	I	High Speed Storage (NoSQL, DW)
+	F	Field Programming Gate Array (Hardware Acceleration)	
+	T	Low Cost General Purpose
+	P	Graphics Purpose / General Purpose / GPU	(Machine Learning)
+	X	Extensive Memory Optimized (SAP HANA / Aapache Spark / Scala)
+
+EBS
+
+	Automatic Backed up in Same AZ for Single Component Failure such as SAN loss
+	No Automatic Backup to Restore
+	
+	Types
+		General Purpose SSD (GP2)
+			balanced between price and performance
+			3 IOPS per GB (min 100 IOPS and upto 10000 IOPS) extra Burst for 3000 IOPS for Volume under 1 GB
+		Provisioned IOPS
+			Designed for I/O intesive applications (RDB / NoSQL DB)
+			IOPS Provision upto 20000
+		Magnatic Storage (SATA HDD)
+			Throughout Optimized
+			Used for Large amount of sequencial data
+			Data Warehouse / Big Data
+			Not a Boot Volume
+		Cold HDD (ST1)
+			Lowest Storage for Infrequently Access Storage such as File Server
+			Not a Boot Volume
+		Magnatic Standard
+			Lowest Cost Magnatic that can be bootable
+
+Logging into EC2 Instance
+			yum update -y
+			yum install httpd -y
+
+Status Check
+		System Status Check
+			Issue with the Infrastruture unline Hypervisor
+		Instance Status Check
+			Issue with OS, Configuration
+
+EC2 Basic CloudWatch Monitoring
+
+Security Group
+		Virtual Firewall for Instances
+		All Inbound Traffic is blocked by default
+		All Outbound Traffic is allowed
+		Changes take effect immediately
+		One EC2 can have any number of Security Groups
+		One Security Group can be attached to Multiple EC2 instances
+		Stateful
+		Cant block specific IP address using SG
+		Only Allow rules. No Deny rules
+
+Volumes and Snapshop
+		Specifc to AZ. Make sure to keep Volume and EC2 in same AZ
+		lsblk
+		file -s /dev/xvdf
+		Volumes and Image can be created from snapshots. Even storage type can be changed
+		Volumes exist on EBS
+		Snapshots are point in time copy of volume		
+		Snapshots exist on S3
+		Snapshots are incremental
+
+RAID
+		Redundant Arrary of Independent Disks
+		Collection of disks working as Single Disk
+		RAID-0 -> Striped / No Redundency Good Performance
+		RAID-1 -> Mirrored, Redundency
+		RAID-5 -> Atleast 3 Disks needed. Good for Read. Bad for Write, Amazon does not recommend RADI-5
+		RADI-10 -> Combination of RAID-1 and RAID-0, Striping and Mirroring, Redundant, Good Performance 
+		Used when Disk I/O is not enough
+		Create RAID Disk on Windows
+
+		Snapshot of RAID
+			Default snapshot in RAID volumes does not take snap of Cache and OS
+			Use Application Consistence Snaps
+				Stop App or other programs writing to Disk
+				Flush full cache to disk
+			How to Do
+				Freez the File System
+				Unmount RAID array
+				Shutdown EC2 Instance
+	
+AMI EBS vs Instance Store
+		
+		Instance Store (Ephemeral Storage)
+			Cant Attach after Instance is launched
+			Can be rebooted and Can not be stopped. If Underlying host fails, user losses its data
+			Less Durability
+			Instance Store cant be dettached and attached to other EC2
+			Root device is always from template stored in S3
+		EBS 		
+		
+
+Placement Groups: These are used to place instances near to each other or far from each other based on what policy you select. CLuster and Spread Policy.
+
+	Instances within same AZ
+	Low Latency between instances. 10 GBPS
+	Cant Span multiple AZ
+	Only Specific Types of Instances can be launched in Placement Groups
+	AWS recommends homogeneous instances
+	Cant merge Placement group
+	Cant move existing instance into placement group
+		
+
+			
+						
+	

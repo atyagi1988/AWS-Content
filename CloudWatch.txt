@@ -1,0 +1,14 @@
+CloudWatch
+
+	Create WebServer Dashboard
+	Default Metrics -> CPU, Disk, Status Check (Both Instance and Hypervisor Level), Network
+	Custom Metrics for RAM Utilization
+
+	Alarm
+
+	Events
+
+	CloudWatch Logs
+
+CloudTrail -> Audit Trail
+
