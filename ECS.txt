@@ -1,0 +1,22 @@
+ECS is container manager service that supports docker. 
+Docker allows developer to run multiple applications / services as container along with their environment and libraries in host system.
+
+ECS Components
+------------------
+Docker Image
+ECS Container Register (ECR)
+Task Definitions
+	Docker Images
+	CPU, RAM
+	Launch Type (EC2 or Fargate) / Managed or Serverless (Fargate manages EC2 instances on your behalf)
+ECS Cluster
+	ECS Agent
+
+Kubernetes is orchestration tools for dockers and containers
+
+EKS (ECS Kubernetes Service)
+	Manages availability and scalability of Kubernetes control plane nodes
+	Start and Stop containers
+	Schedule Containers
+	Replace unhealthy nodes
+
