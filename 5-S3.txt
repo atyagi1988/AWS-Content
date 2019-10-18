@@ -1,0 +1,93 @@
+S3 - Basics
+
+Objects based vs Block based storage
+
+0 - 5 TB per file
+
+Maximum upload piece can not be be beyond 5 GB.....
+For file size bigger than that, use multipart upload....
+
+Unlimited Storage
+
+Bucket
+
+Universal Namespace
+
+http://s3:<region>.amazonaws.com/<bucketname>
+
+https://s3.amazonaws.com/edureka2019/hello.txt
+
+Bucket Polices: Access rules set at bucket level. It overrides individual access permissions of any object inside that bucket.
+
+Data Consistency
+	Read After Write Consistency for PUTS of new Objects
+		Any object is immediately available for read after write of that object completes.
+	Eventual Consistency for Overwrite PUTS and DELETE (1-2 Secs)
+		Once you update of delete an object, it may take a couple of seconds to reflect. User can see eith old or new data during time.
+		Either New or Old version of Data / No Partial Version
+
+Key Value Store:
+	Key -> Name
+	Value -> Actual Data
+	Version ID -> XXX
+	MetaData -> 
+	Subresources -> Access Control List, Torrent
+
+Features:
+
+	Built for 99.99% Available but Amazon Guarentees 99.9% Availability
+	99.999999999% (11-9) of Durability
+	Tiered Storage Options
+	Life Cycle Management
+	Versioning
+	Encryption
+	ACL and Bucket Policies
+	
+
+Tier/ Class
+	S3: 99.99% Av, 11-9 Durability, Can sustain 2 facilities loss
+	S3-IA: Lower Fee + Retrieval Fee, 99.99% av, 11-9 Durability
+	Reduced Redundency Storage: 99.99% Av, 99.99% Durability (Data Can be 	generated again), 1 Facility Loss
+
+	S3 Glacier: Less cost storage for archive data. Data gets stored in archive pieces and pieces are kept in vault. It takes 3-5 hrs of time to restore vault and then files can be downloaded. 
+
+	1$ for 100 GB for 1 month. + 1 Cent per GB for restore.
+Expedite Retrival: 3 Cents per GB for restore then object can be restored with 1-5 minutes.
+
+S3 Charges:
+	Storage
+	Requests PUTS and GETS
+	Data Transfer Pricing
+	Transfer Acceleration
+
+Integration with Lifecycle Rules
+
+Versioning: This feature allows you to maintain multiple versions of the same object. When object will same name is uploaded to S3, it makes earliar copy as old version.
+
+Once you delete the object while versioning is on. It does not actually deletes the object. It creates a delete marker, which hides the file from URL but file will not ne deleted and be made older version.
+	
+To save objects from accedential delete, you should use versioning and MFA.
+
+
+Life Cycle Policy allows S3 objects to be moved to different pricing tier based in life of the object.
+Ex: Object can be stored in S3 Std and will be moved to S3 IA after 90 days and glaciers after 365 days and expire after 730 days.
+
+Transfer Acceleration: This feature enhances upload speed to S3 buckets by leveraging edge locations.
+
+
+Cross Region Replication between S3 buckets (For New Objects)
+	Replicates all version upon update
+	Replicate permissions as well
+	Deleting of Delete Marker does get replicate to destination bucket but not 		for individual version of file
+
+Lifecycle Management Lab
+	Can leverage Versioning
+	Applied for both current and Old version
+	
+	
+S3 Transfer Acceleraion
+		
+CloudFront: It is a service which allows faster download of object by leveraging edge locations.
+
+
+
