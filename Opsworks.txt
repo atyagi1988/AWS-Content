@@ -1,0 +1,8 @@
+Ops Works
+-----------------
+Service that allows you to automate you server configuration using chef or puppet.
+Uses Managed instances of Chef or Puppet
+Enables configuration management for your OS and Application
+Allows you to automate server config using code
+
+Ex: Creating OS users in many servers, Setting up ntp server, Scheduling any job in many servers

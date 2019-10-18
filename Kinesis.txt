@@ -1,0 +1,51 @@
+Kinesis
+------------------------
+Service used to analyze the high volume running data.
+
+Managed service that takes the data from multiple sources (log files, trace etc) and stores them. Consumers such as (s3, Dynamo DB, Redshift, Real time dashboard) can read and analyze the data at the same time.
+
+IOT Sensor -----> Kinesis -------> Redshift ----------> SNS
+
+Kinesis Services
+------------------------
+Kinesis Video Stream
+	Stream videos to AWS for batch processing of video and analytics
+
+Kinesis Data Stream
+	Injest data from multiple sources and then multiple consumers use the data.
+	Real time data processing application
+	Data is processed in sequence (1 MB  Blog)
+	Data is retained in Kinesis for 24 hrs but can be extended upto 7 days
+	Typically used to process the data and save processed data at other places such 	S3, Dynamo DB etc
+	Hadoop apps can process the data using provided EMR connector
+
+Kinesis Firehose
+	Just injust the data and saves it. Loads streaming data to S3, Redshift, ElasticSearch etc
+	
+Kinesis Data Anylytics
+	Runs SQL statements against Data Stream or Firehose
+	Sends results output to Data Stream or Firehose
+	Allows customer to do real time processing
+
+Kinesis Components
+-------------------
+Stream: Contains one or more Shards
+
+Shards (Processing Power): 1 MBPS Input and 2 MBPS Output
+
+Producers: Data creators (log file, IOT device)
+		Any device that generates data and sends it to Kinesis. 
+
+Data Stream API: API to send data from source
+Kinesis Producer Library: Java library that sends data to stream
+Kinesis Agent: Streams file from Linux server
+
+
+Consumer: Data Consumer (s3, dynamo db, redshift, or kinesis app) 
+
+Kinesis Consumer Library:  
+Lambda:
+EMR Connector:
+
+
+Ex: Kinesis can start getting stream of data from temprature control system  with the help of IOT sensor, data is collected and analyzed. And Room temprature is maintained based on inputs.
