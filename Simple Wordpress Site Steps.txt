@@ -1,0 +1,26 @@
+----------------- These steps are required if you are planning to run MYSQL on EC2 Server---------------------
+yum install mysql-server -y
+service mysqld start
+/usr/bin/mysql_secure_installation
+mysql -u root -p
+create database wordpress;
+GRANT ALL ON *.* to root@'%' IDENTIFIED BY 'welcome';
+------------Continue from here for RDS-----------------
+
+Launch EC2 IP URL in browser. It will prompt for database details.
+	Database name:	wordpress
+	User:		root
+	Password:	welcome
+	Hostname:	localhost
+Next page will prompt to create wp-config.php file. Copy the content and create wp-config.php in /var/www/html
+	vi wp-config.php
+	Shift+Insert
+	:x Enter
+Continue with Installer By Clicking on "Run Installation"
+Provide Details such as Site Title, Admin Username/ Password, Email and CLick to Continue
+Open URL to access Site
+Login with your admin/password for frontend access
+Admin Panel ->
+	Write a new Post
+	Insert Image, Some Text, Publish
+Open URL to access and see your first blog
