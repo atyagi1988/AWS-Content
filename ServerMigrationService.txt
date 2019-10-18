@@ -1,0 +1,28 @@
+AWS Server Migration Service
+-----------------------------------------
+Allows customer to migrate VMware or HyperV based virtual machines to be migrated into AWS cloud / EC2
+Agentless Installation
+Requires vCenter or HyperV
+
+Steps
+------------------------
+1. Login to AWS management console and download ova for desired hyperV
+
+2. Create vCenter role named "AWS SMS Connector" with priviledges mentioed in URL
+
+Datastore > Browse datastore and Low level file operations (Datastore.Browse and Datastore.FileManagement)
+Host > Configuration > System Management (Host.Config.SystemManagement)
+vApp > Export (VApp.Export)
+Virtual Machine > Snapshot management > Create snapshot and Remove Snapshot (VirtualMachine.State.CreateSnapshot and VirtualMachine.State.RemoveSnapshot)
+Assign the role as follows:
+Assign this vCenter role to the service account for the connector to use to log in to vCenter.
+Assign this role with propagating permissions to the data centers that contain the VMs to migrate.
+
+3. Create a IAM user account with ServerMigrationRoles
+4. Create IAM role with SMS policy
+5.  Deploy ova into vCenter
+6. Once ova is deployed, take IP and paste it in browser to access local SMS console
+Provide vCenter login credentials
+7. Login and import catalog of VMs in vCenter Server
+8. Select VM and start migration. Select a schedule (or immediate migration) and select replication of delta terms. 
+9. Once VM migration is completed. Customer can see AMI in AWS AMI list.

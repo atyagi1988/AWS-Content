@@ -1,0 +1,14 @@
+Redshift
+---------------
+OLAP Database, optimized for running query, petalbyte scalable data warehousing solution
+Not good for OLTP model
+Optimized for Analytics or Data warehousing Purposes
+Usually Data from RDS databases ingest into Redshift for Analytical and Reporting query Purpose
+Holds data from multiple system
+Supports Massive Parallel Processing (MPP)
+YOu can connect like RDS but here you connect to Leader Node (With underlying Compute Nodes) using tools like Amazon QuickSight / Congnos / Informatica / Tablau. Data is stored in Compute Nodes. Leader node takes the query and compiles and sends query to compute nodes for processing.
+Allows Snapshot
+Encryption is optional
+Low Cost (Less than 1000$ per TB per year)
+
+Redshift Spactrum: Allows you to extends query to get data from S3 buckets. Can query exebytes of data in minutes.

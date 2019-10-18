@@ -1,0 +1,27 @@
+Basic Infrastructure
+----------------------------------
+1. What are three main components of AWS Global Infrastructure?
+
+
+S3
+------------------------
+1. Which feature of S3 allows to hold multiple copy of same files when overwritten?
+
+2. Which feature of S3 helps you to make copy of S3 data in different bucket in different region?
+
+3. Which feature of S3 allows to you move data from one pricing tier to another without manual intervention?
+
+4. What is the minimum allowed size of object in S3?
+
+5. What is the maximum allowed size of object in S3?
+
+6. What is the maximum size a bucket can have?
+
+7.  While versioning is on, deletion of file in bucket does not actually deletes the file, rather it makes the existing file as older version. True or False
+
+8. S3 is block based storage solution from AWS. True or False
+
+9. What are different pricing options in S3?
+
+10. S3 is designed for how much availabililty percent?
+
